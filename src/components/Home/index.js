@@ -43,7 +43,7 @@ const Home = () => {
   });
   return (
     <div>
-      {latitude ? (<Day
+      {weather != null ? (<Day
         image={Image}
         name={name}
         temp={temp}

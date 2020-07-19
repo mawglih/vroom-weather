@@ -1,0 +1,47 @@
+.big_screen {
+  display: flex;
+  flex-direction: column;
+  background-color: #e7e5d9;
+  color:#d8b192;
+}
+.links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.links a {
+  color:#d8b192;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.logo {
+  margin: 50px;
+}
+.address {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.address img {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/* for smaller devices */
+@media only screen and (max-width: 768px) {
+  .big_screen {
+    display: none;
+  }
+  .list {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .mobile_only {
+    display: none;
+  }
+}

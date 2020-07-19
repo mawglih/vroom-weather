@@ -13,16 +13,16 @@ const Home = () => {
     accuracy,
     error,
   } = usePosition(watch);
-  console.log('latitude', latitude);
-  console.log('longitude', longitude);
  
   const [local, getLocal] = useState({});
- 
-  console.log('weather', local);
     
   useEffect(() => {
-    api.localWeather(latitude,longitude,'weather')
-    .then(data => getLocal(data));
+    if(!latitude || !longitude) {
+      getLocal({});
+    } else {
+      api.localWeather(latitude,longitude,'weather')
+      .then(data => getLocal(data));
+    }
   }, [latitude, longitude]);
   const {
     main: {

@@ -15,8 +15,6 @@ const Forecast = () => {
     error,
   } = usePosition(watch);
   const [forecast, getForecast] = useState({});
- 
-  console.log('weather', forecast);
   const {
     list,
     city : {
@@ -25,12 +23,14 @@ const Forecast = () => {
   } = forecast;
     
   useEffect(() => {
-    api.localWeather(latitude,longitude,'forecast/daily')
-    .then(data => getForecast(data));
+    if(!latitude || !longitude) {
+      getForecast({});
+    } else {
+      api.localWeather(latitude,longitude,'forecast/daily')
+      .then(data => getForecast(data));
+    }
   }, [latitude, longitude]);
-
   const items = list && list.slice(0, 5);
-  console.log('items', items);
   return (
     <div className={styles.container}>
       {items ? (<>

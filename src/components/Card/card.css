@@ -1,0 +1,27 @@
+.container {
+  width: 200px;
+}
+.Thunderstorm {
+  background-color: #222;
+}
+.Drizzle {
+  background-color: #666;
+}
+.Rain {
+  background-color: lightblue;
+}
+.Snow {
+  background-color: darkcyan;
+}
+.Clear {
+  background-color: whitesmoke;
+}
+.Clouds {
+  background-color: #999;
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    width: 95vw;
+    margin-bottom: 5px;
+  }
+}

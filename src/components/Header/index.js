@@ -34,7 +34,7 @@ const Header = () => {
     >
       <List className={styles.drawer}>
         <div className={styles.logo}>
-          <img src="" alt="logo"/>
+          <img src="https://photo-links.s3.amazonaws.com/lyagux.png" alt="logo" width="50" height="50"/>
         </div>
         
         {LINKS.map(({ text, link }) => (
@@ -54,7 +54,7 @@ const Header = () => {
       <div className={styles.big_screen}>
         <div className={styles.logo}>
           <NavLink exact activeClassName={styles.isActive} to='/'>
-              <img src="" alt="logo"/>
+              <img src="https://photo-links.s3.amazonaws.com/lyagux.png" alt="logo" width="100"/>
           </NavLink>
         </div>
         <div className={styles.links}>

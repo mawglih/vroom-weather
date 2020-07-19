@@ -18,7 +18,7 @@
   font-size: 1.2rem;
 }
 .logo {
-  margin: 50px;
+  margin-top: 15px;
 }
 .address {
   display: flex;
@@ -38,6 +38,11 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 @media only screen and (min-width: 769px) {

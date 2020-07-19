@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { usePosition } from '../../hooks/use-position';
 import api  from '../../api/weather';
 import Card from '../Card';
+import styles from './Forecast.css';
 
 const Forecast = () => {
   const watch = true;
@@ -30,17 +31,19 @@ const Forecast = () => {
   const items = list && list.slice(0, 5);
   console.log('items', items);
   return (
-    <div>
-      <h1>That is forecast baby for {name}</h1>
-      {items && items.length > 0 && items.map((item, ind) => {
-        return (
-          <Card
-            key={ind}
-            data={item}
-            ind={ind}
-          />
-        )
-      })}
+    <div className={styles.container}>
+      <h1>5 days forecast for {name}</h1>
+      <div className={styles.content}>
+        {items && items.length > 0 && items.map((item, ind) => {
+          return (
+            <Card
+              key={ind}
+              data={item}
+              ind={ind}
+            />
+          )
+        })}
+      </div>
     </div>
   )
 }

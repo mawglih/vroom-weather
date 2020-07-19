@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { usePosition } from '../../hooks/use-position';
-import moment from 'moment';
-import axios from 'axios';
 import api from '../../api/weather';
+import Spinner from '../Spinner';
 import Day from '../Day';
 
 const Home = () => {
@@ -31,10 +30,6 @@ const Home = () => {
       humidity,
       pressure,
     } = {},
-    sys: {
-      sunrise,
-      sunset,
-    } = {},
     weather,
     wind: {
       speed,
@@ -46,20 +41,16 @@ const Home = () => {
       item.icon
     );
   });
-  const sunSet = sunset && new Date(sunset).toLocaleTimeString("en-US");
-  const sunRise = sunrise && new Date(sunrise).toLocaleTimeString("en-US");
   return (
     <div>
-      That is home of weather app
-      <h1>{name}</h1>
-      <img src={`http://openweathermap.org/img/wn/${Image}@2x.png`} alt="icon"/>
-      <h2>Temperature: {temp && `${Math.round(temp)} F`}</h2>
-      <h3>Humidity: {humidity} %</h3>
-      <h3>Pressure: {pressure && `${pressure} hPa`}</h3>
-      <h4>Sunrise: {sunRise}</h4>
-      <h4>Sunset: {sunSet}</h4>
-      <h4>Wind at {speed && `${Math.round(speed)} mph`}</h4>
-
+      {latitude ? (<Day
+        image={Image}
+        name={name}
+        temp={temp}
+        humidity={humidity}
+        pressure={pressure}
+        speed={speed}
+      />) : <Spinner/>}
     </div>
   )
 }
